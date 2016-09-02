@@ -18,7 +18,7 @@ $ npm install sails-generate-x-dotenv
 $ sails generate x-dotenv 
 ```
 
-### What happened
+### What Happened
 
 The `x-dotenv` will generate two files below:
 1. ./.env
@@ -37,7 +37,7 @@ After `x-dotenv` generated, you should do some steps to make `dotenv` exactly ef
 You will need to install the `dotenv` packages from npm.
 
 ```
-npm install dotenv
+npm install dotenv --save
 ```
 
 #### Step 2
