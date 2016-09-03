@@ -1,0 +1,32 @@
+{
+  "name": "sails-generate-x-babel",
+  "version": "0.10.0",
+  "description": "sails generate x-babel",
+  "main": "Generator.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "x-babel",
+    "generator",
+    "sails",
+    "generate",
+    "plugin"
+  ],
+  "author": "balderdashy",
+  "license": "MIT",
+  "dependencies": {
+  	"lodash": ">=2.4.x",
+  	"merge-defaults": ">=0.1.0"
+  },
+  "devDependencies": {
+    "sails-generate": "*",
+    "reportback": "*",
+    "fs-extra": "*"
+  },
+  "sailsGenerator": {
+    "type": "x-babel",
+    "behavior": "overrides `sails generate x-babel`",
+    "sailsVersion": "~0.10.0"
+  }
+}
