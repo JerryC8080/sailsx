@@ -7,12 +7,12 @@ var _ = require('lodash');
 _.defaults = require('merge-defaults');
 
 /**
- * sails-generate-x-dotenv
+ * sails-generate-x-babel
  *
  * Usage:
- * `sails generate x-dotenv`
+ * `sails generate x-babel`
  *
- * @description Generates a x-dotenv
+ * @description Generates a x-babel
  * @help See http://links.sailsjs.org/docs/generators
  */
 module.exports = {

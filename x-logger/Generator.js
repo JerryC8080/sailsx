@@ -7,12 +7,12 @@ var _ = require('lodash');
 _.defaults = require('merge-defaults');
 
 /**
- * sails-generate-x-dotenv
+ * sails-generate-x-logger
  *
  * Usage:
- * `sails generate x-dotenv`
+ * `sails generate x-logger`
  *
- * @description Generates a x-dotenv
+ * @description Generates a x-logger
  * @help See http://links.sailsjs.org/docs/generators
  */
 module.exports = {
@@ -40,7 +40,7 @@ module.exports = {
     });
 
     // Add other stuff to the scope for use in our templates:
-    scope.whatIsThis = 'The file created by sails-generete-x-dotenv at '+scope.createdAt;
+    scope.whatIsThis = 'The file created by sails-generete-x-logger at '+scope.createdAt;
 
     // When finished, we trigger a callback with no error
     // to begin generating files/folders as specified by
