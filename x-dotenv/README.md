@@ -21,6 +21,7 @@ $ sails generate x-dotenv
 ### What Happened
 
 The `x-dotenv` will generate two files below:
+
 1. ./.env
 2. ./.env.example
 

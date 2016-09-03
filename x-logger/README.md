@@ -26,6 +26,7 @@ $ sails generate x-logger --force
 ### What Happened
 
 The `x-logger` will overwrite the file below:
+
 1. ./config/log.js
 
 It Change the logger that built-in sails with `winston`.
