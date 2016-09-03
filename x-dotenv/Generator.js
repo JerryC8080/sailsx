@@ -39,19 +39,14 @@ module.exports = {
       createdAt: new Date()
     });
 
-    // Decide the output filename for use in targets below:
-    scope.filename = scope.args[0];
-
     // Add other stuff to the scope for use in our templates:
-    scope.whatIsThis = 'an example file created at '+scope.createdAt;
+    scope.whatIsThis = 'The file created by sails-generete-x-dotenv at '+scope.createdAt;
 
     // When finished, we trigger a callback with no error
     // to begin generating files/folders as specified by
     // the `targets` below.
     cb();
   },
-
-
 
   /**
    * The files/folders to generate.
@@ -62,7 +57,6 @@ module.exports = {
     './.env': { template: '.env' },
     './.env.example': { template: '.env.example' },
   },
-
 
   /**
    * The absolute path to the `templates` for this generator
