@@ -32,7 +32,7 @@ The `x-mocha` will create some files below:
 
 ### Development
 
-After `x-babel` generated, you should do some steps to make it exactly effected.
+After `x-mocha` generated, you should do some steps to make it exactly effected.
 
 #### Step 1
 Add packages below in your `package.json` file.
