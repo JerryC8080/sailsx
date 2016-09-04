@@ -90,6 +90,10 @@ require('babel-polyfill');
 
 #### Step 4
 
+You aslo suggested add `api` in you `.gitignore` file.
+
+#### Step 5
+
 Coding your application in `src` folder instead of `api` folder.
 
 ### License
