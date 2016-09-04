@@ -1,7 +1,3 @@
-'use strict';
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
 /**
  * The file created by sails-generete-x-babel at Sun Sep 04 2016 15:54:44 GMT+0800 (CST)
  * 400 (Bad Request) Handler
@@ -32,8 +28,9 @@ module.exports = function badRequest(data, options) {
 
   // Log error to console
   if (data !== undefined) {
-    sails.log.verbose('Sending 400 ("Bad Request") response: \n', data);
-  } else sails.log.verbose('Sending 400 ("Bad Request") response');
+    sails.log.verbose('Sending 400 ("Bad Request") response: \n',data);
+  }
+  else sails.log.verbose('Sending 400 ("Bad Request") response');
 
   // Only include errors in response if application environment
   // is not set to 'production'.  In production, we shouldn't
@@ -50,14 +47,15 @@ module.exports = function badRequest(data, options) {
 
   // If second argument is a string, we take that to mean it refers to a view.
   // If it was omitted, use an empty object (`{}`)
-  options = typeof options === 'string' ? { view: options } : options || {};
+  options = (typeof options === 'string') ? { view: options } : options || {};
 
   // Attempt to prettify data for views, if it's a non-error object
   var viewData = data;
-  if (!(viewData instanceof Error) && 'object' == (typeof viewData === 'undefined' ? 'undefined' : _typeof(viewData))) {
+  if (!(viewData instanceof Error) && 'object' == typeof viewData) {
     try {
-      viewData = require('util').inspect(data, { depth: null });
-    } catch (e) {
+      viewData = require('util').inspect(data, {depth: null});
+    }
+    catch(e) {
       viewData = undefined;
     }
   }
@@ -71,7 +69,9 @@ module.exports = function badRequest(data, options) {
 
   // If no second argument provided, try to serve the implied view,
   // but fall back to sending JSON(P) if no view can be inferred.
-  else return res.guessView({ data: viewData, title: 'Bad Request' }, function couldNotGuessView() {
-      return res.jsonx(data);
-    });
+  else return res.guessView({ data: viewData, title: 'Bad Request' }, function couldNotGuessView () {
+    return res.jsonx(data);
+  });
+
 };
+

@@ -1,7 +1,3 @@
-'use strict';
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
 /**
  * The file created by sails-generete-x-babel at Sun Sep 04 2016 15:54:44 GMT+0800 (CST)
  * 404 (Not Found) Handler
@@ -22,7 +18,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
  * automatically.
  */
 
-module.exports = function notFound(data, options) {
+module.exports = function notFound (data, options) {
 
   // Get access to `req`, `res`, & `sails`
   var req = this.req;
@@ -34,8 +30,9 @@ module.exports = function notFound(data, options) {
 
   // Log error to console
   if (data !== undefined) {
-    sails.log.verbose('Sending 404 ("Not Found") response: \n', data);
-  } else sails.log.verbose('Sending 404 ("Not Found") response');
+    sails.log.verbose('Sending 404 ("Not Found") response: \n',data);
+  }
+  else sails.log.verbose('Sending 404 ("Not Found") response');
 
   // Only include errors in response if application environment
   // is not set to 'production'.  In production, we shouldn't
@@ -52,14 +49,15 @@ module.exports = function notFound(data, options) {
 
   // If second argument is a string, we take that to mean it refers to a view.
   // If it was omitted, use an empty object (`{}`)
-  options = typeof options === 'string' ? { view: options } : options || {};
+  options = (typeof options === 'string') ? { view: options } : options || {};
 
   // Attempt to prettify data for views, if it's a non-error object
   var viewData = data;
-  if (!(viewData instanceof Error) && 'object' == (typeof viewData === 'undefined' ? 'undefined' : _typeof(viewData))) {
+  if (!(viewData instanceof Error) && 'object' == typeof viewData) {
     try {
-      viewData = require('util').inspect(data, { depth: null });
-    } catch (e) {
+      viewData = require('util').inspect(data, {depth: null});
+    }
+    catch(e) {
       viewData = undefined;
     }
   }
@@ -75,21 +73,23 @@ module.exports = function notFound(data, options) {
   // but fall back to sending JSON(P) if any errors occur.
   else return res.view('404', { data: viewData, title: 'Not Found' }, function (err, html) {
 
-      // If a view error occured, fall back to JSON(P).
-      if (err) {
-        //
-        // Additionally:
-        // • If the view was missing, ignore the error but provide a verbose log.
-        if (err.code === 'E_VIEW_FAILED') {
-          sails.log.verbose('res.notFound() :: Could not locate view for error page (sending JSON instead).  Details: ', err);
-        }
-        // Otherwise, if this was a more serious error, log to the console with the details.
-        else {
-            sails.log.warn('res.notFound() :: When attempting to render error page view, an error occured (sending JSON instead).  Details: ', err);
-          }
-        return res.jsonx(data);
+    // If a view error occured, fall back to JSON(P).
+    if (err) {
+      //
+      // Additionally:
+      // • If the view was missing, ignore the error but provide a verbose log.
+      if (err.code === 'E_VIEW_FAILED') {
+        sails.log.verbose('res.notFound() :: Could not locate view for error page (sending JSON instead).  Details: ',err);
       }
+      // Otherwise, if this was a more serious error, log to the console with the details.
+      else {
+        sails.log.warn('res.notFound() :: When attempting to render error page view, an error occured (sending JSON instead).  Details: ', err);
+      }
+      return res.jsonx(data);
+    }
 
-      return res.send(html);
-    });
+    return res.send(html);
+  });
+
 };
+

@@ -1,32 +1,28 @@
-'use strict';
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
 /**
  * The file created by sails-generete-x-babel at Sun Sep 04 2016 15:54:44 GMT+0800 (CST)
- * 200 (OK) Response
+ * 201 (CREATED) Response
  *
  * Usage:
- * return res.ok();
- * return res.ok(data);
- * return res.ok(data, 'auth/login');
+ * return res.created();
+ * return res.created(data);
+ * return res.created(data, 'auth/login');
  *
  * @param  {Object} data
  * @param  {String|Object} options
  *          - pass string to render specified view
  */
 
-module.exports = function sendOK(data, options) {
+module.exports = function created (data, options) {
 
   // Get access to `req`, `res`, & `sails`
   var req = this.req;
   var res = this.res;
   var sails = req._sails;
 
-  sails.log.silly('res.ok() :: Sending 200 ("OK") response');
+  sails.log.silly('res.created() :: Sending 201 ("CREATED") response');
 
   // Set status code
-  res.status(200);
+  res.status(201);
 
   // If appropriate, serve data as JSON(P)
   // If views are disabled, revert to json
@@ -36,14 +32,15 @@ module.exports = function sendOK(data, options) {
 
   // If second argument is a string, we take that to mean it refers to a view.
   // If it was omitted, use an empty object (`{}`)
-  options = typeof options === 'string' ? { view: options } : options || {};
+  options = (typeof options === 'string') ? { view: options } : options || {};
 
   // Attempt to prettify data for views, if it's a non-error object
   var viewData = data;
-  if (!(viewData instanceof Error) && 'object' == (typeof viewData === 'undefined' ? 'undefined' : _typeof(viewData))) {
+  if (!(viewData instanceof Error) && 'object' == typeof viewData) {
     try {
-      viewData = require('util').inspect(data, { depth: null });
-    } catch (e) {
+      viewData = require('util').inspect(data, {depth: null});
+    }
+    catch(e) {
       viewData = undefined;
     }
   }
@@ -52,12 +49,13 @@ module.exports = function sendOK(data, options) {
   // Otherwise try to guess an appropriate view, or if that doesn't
   // work, just send JSON.
   if (options.view) {
-    return res.view(options.view, { data: viewData, title: 'OK' });
+    return res.view(options.view, { data: viewData, title: 'Created' });
   }
 
   // If no second argument provided, try to serve the implied view,
   // but fall back to sending JSON(P) if no view can be inferred.
-  else return res.guessView({ data: viewData, title: 'OK' }, function couldNotGuessView() {
-      return res.jsonx(data);
-    });
+  else return res.guessView({ data: viewData, title: 'Created' }, function couldNotGuessView () {
+    return res.jsonx(data);
+  });
+
 };

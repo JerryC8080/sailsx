@@ -1,7 +1,3 @@
-'use strict';
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
 /**
  * The file created by sails-generete-x-babel at Sun Sep 04 2016 15:54:44 GMT+0800 (CST)
  * 200 (OK) Response
@@ -16,7 +12,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
  *          - pass string to render specified view
  */
 
-module.exports = function sendOK(data, options) {
+module.exports = function sendOK (data, options) {
 
   // Get access to `req`, `res`, & `sails`
   var req = this.req;
@@ -36,14 +32,15 @@ module.exports = function sendOK(data, options) {
 
   // If second argument is a string, we take that to mean it refers to a view.
   // If it was omitted, use an empty object (`{}`)
-  options = typeof options === 'string' ? { view: options } : options || {};
+  options = (typeof options === 'string') ? { view: options } : options || {};
 
   // Attempt to prettify data for views, if it's a non-error object
   var viewData = data;
-  if (!(viewData instanceof Error) && 'object' == (typeof viewData === 'undefined' ? 'undefined' : _typeof(viewData))) {
+  if (!(viewData instanceof Error) && 'object' == typeof viewData) {
     try {
-      viewData = require('util').inspect(data, { depth: null });
-    } catch (e) {
+      viewData = require('util').inspect(data, {depth: null});
+    }
+    catch(e) {
       viewData = undefined;
     }
   }
@@ -57,7 +54,8 @@ module.exports = function sendOK(data, options) {
 
   // If no second argument provided, try to serve the implied view,
   // but fall back to sending JSON(P) if no view can be inferred.
-  else return res.guessView({ data: viewData, title: 'OK' }, function couldNotGuessView() {
-      return res.jsonx(data);
-    });
+  else return res.guessView({ data: viewData, title: 'OK' }, function couldNotGuessView () {
+    return res.jsonx(data);
+  });
+
 };
