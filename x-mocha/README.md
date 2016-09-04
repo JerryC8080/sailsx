@@ -25,7 +25,7 @@ $ sails generate x-mocha
 
 ### What Happened
 
-The `x-mocha` will crate the file below:
+The `x-mocha` will create some files below:
 
 1. ./test/*
 2. ./config/env/test.js

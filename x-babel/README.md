@@ -25,7 +25,7 @@ $ sails generate x-babel
 
 ### What Happened
 
-The `x-babel` will crate the file below:
+The `x-babel` will create some files below:
 
 1. ./.babelrc
 2. ./src/* （`src` is the folder copy of api `folder`）
