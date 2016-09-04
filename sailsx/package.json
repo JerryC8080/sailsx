@@ -40,7 +40,8 @@
     "start": "node app.js",
     "build": "babel src --out-dir api --copy-files",
     "build-prod": "NODE_ENV=production& babel src --out-dir api --copy-files",
-    "build-watch": "babel src --watch --out-dir api --copy-files"
+    "build-watch": "babel src --watch --out-dir api --copy-files",
+    "apidoc": "apidoc -i src -o apidoc"
   },
   "main": "app.js",
   "repository": {
