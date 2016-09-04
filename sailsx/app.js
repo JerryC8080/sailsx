@@ -18,6 +18,7 @@
  * `node app.js --silent --port=80 --prod`
  */
 require('babel-polyfill');
+require('dotenv').config();
 
 // Ensure we're in the project directory, so relative paths work as expected
 // no matter where we actually lift from.
