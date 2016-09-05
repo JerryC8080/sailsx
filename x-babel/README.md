@@ -43,7 +43,6 @@ You should add packages below in your `package.json` file.
   ...
   "babel-cli": "6.7.5",
   "babel-core": "6.4.0",
-  "babel-eslint": "6.0.2",
   "babel-loader": "6.2.4",
   "babel-plugin-add-module-exports": "0.1.2",
   "babel-plugin-syntax-export-extensions": "6.5.0",
